@@ -1,0 +1,16 @@
+Sensor service
+
+Available at:
+TCP port 12002.
+Sensor service listen with an ZeroMQ Pull socket.
+Stores sensor values sent in a mongodb database.
+
+
+Protocol
+To communicate with the logger service the client should use a ZeroMQ Push
+socket.
+
+Store command:
+frame 0: Category - Category of the sensor, eg. temperature. UTF8 string.
+frame 1: Name - Name of the specific sensor eg. simon-outdoor
+frame 2: Value - Current value of the sensor. Float as a UTF8 String.
