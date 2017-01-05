@@ -1,0 +1,58 @@
+name:                zero-cloud
+version:             0.1.0.0
+synopsis:            Simple distributed cloud platform
+description:         Please see README.md
+homepage:            https://github.com/githubuser/zero-cloud#readme
+license:             GPL-3
+license-file:        LICENSE
+author:              Simon Norberg
+maintainer:          simon@pthread.se
+copyright:           2016 Simon Norberg
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Data.String.Strip
+  build-depends:       base >= 4.7 && < 5
+  default-language:    Haskell2010
+
+executable 0-logger
+  hs-source-dirs:      service/logger
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , zero-cloud
+                     , zeromq4-haskell
+                     , bytestring
+                     , fast-logger
+  default-extensions:    OverloadedStrings
+  default-language:    Haskell2010
+
+executable 0-simple
+    hs-source-dirs:      service/simple
+    main-is:             Main.hs
+    ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+    build-depends:       base
+                       , zero-cloud
+                       , zeromq4-haskell
+                       , bytestring
+    default-extensions:    OverloadedStrings
+    default-language:    Haskell2010
+
+test-suite zero-cloud-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , zero-cloud
+                     , hspec
+                     , QuickCheck
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/Norberg/zero-cloud

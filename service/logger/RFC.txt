@@ -1,0 +1,17 @@
+Logger service
+
+Available at:
+TCP port 12001.
+Logger service listen with an ZeroMQ Pull socket.
+
+
+Protocol
+To communicate with the logger service the client should use a ZeroMQ Push
+socket.
+
+Logging command:
+frame 0: Service - Name of the service that logs the message. UTF8 string.
+frame 1: LogLevel - Log lovel of the message the following log leves
+                    are considered standard: DEBUG, INFO, WARNING, ERROR.
+                    UTF8 string.
+frame 2: Message - Message to log. UTF8 String.
