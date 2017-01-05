@@ -1,11 +1,11 @@
 module Main where
 
 import           Control.Monad
-import qualified Data.ByteString.Char8 as BS
+import           Control.ZeroCloud.Logger
+import qualified Data.ByteString.Char8    as BS
 import           System.ZMQ4.Monadic
-import Data.Monoid
-import Control.ZeroCloud.Logger
 
+serviceAddr :: String
 serviceAddr = "tcp://*:12002"
 
 main :: IO ()
