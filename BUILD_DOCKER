@@ -1,0 +1,2 @@
+docker build  -f dockerfiles/0-logger/Dockerfile . -t atom:5000/0-logger/0.1.0
+docker push atom:5000/0-logger/0.1.0

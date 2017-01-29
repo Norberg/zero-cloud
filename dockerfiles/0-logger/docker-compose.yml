@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  0-logger:
+    image: atom:5000/0-logger
+    ports:
+      - "12001:12001"
+    volumes:
+      - zero-cloud-logs:/var/log/zero-cloud
+
+volumes:
+ zero-cloud-logs:
+    driver: custom-volume-driver
