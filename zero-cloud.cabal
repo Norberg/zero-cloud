@@ -15,10 +15,12 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Control.ZeroCloud.Logger
+  exposed-modules:     Control.ZeroCloud.Logger, Control.ZeroCloud.Database.MongoDB
   build-depends:       base >= 4.7 && < 5
                        , zeromq4-haskell
                        , bytestring
+                       , mongoDB
+                       , bson
   default-extensions:    OverloadedStrings
   default-language:    Haskell2010
   ghc-options:     -Wall
@@ -34,7 +36,7 @@ executable 0-logger
                      , fast-logger
   default-extensions:    OverloadedStrings
   default-language:    Haskell2010
-  ghc-options:     -Wall
+  ghc-options:     -Wall -pgml g++ -static -optl-static
 
 executable 0-sensor
     hs-source-dirs:      service/sensor
@@ -45,6 +47,10 @@ executable 0-sensor
                        , zeromq4-haskell
                        , bytestring
                        , fast-logger
+                       , mongoDB
+                       , bson
+                       , time
+                       , text
     default-extensions:  OverloadedStrings
     default-language:    Haskell2010
     ghc-options:     -Wall

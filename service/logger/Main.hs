@@ -23,7 +23,7 @@ main = do
     putStrLn "Starting logger service..."
     timeCache <- newTimeCache logTimeFormat
     (logfile, _) <- newTimedFastLogger timeCache $ LogFile (FileLogSpec logFileName logFileSize nrOfLogFiles) logBufferSize
-
+    logfile $ doLog "Logger" "INFO" "Service started."
     runZMQ $ do
         logger <- socket Pull
         bind logger logAddr
